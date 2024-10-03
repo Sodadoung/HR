@@ -134,7 +134,9 @@
             setTimeout(() => {
                 const customers = JSON.parse(localStorage.getItem('customers')) || [];
                 const validUser = customers.find(customer => 
-                    customer.name === 1 && customer.email === 1@1 && customer.password === 1
+                    customer.name === username &&
+                    customer.email === email &&
+                    customer.password === password
                 );
                 if (validUser) {
                     document.getElementById('loginForm').style.display = 'none';
@@ -162,7 +164,8 @@
                         confirmButtonText: 'Try Again'
                     });
                 }
-            }, 2000); // Change 2000 to the desired delay in milliseconds
+            }, 2000);
+             // Change 2000 to the desired delay in milliseconds
         });
 
         document.getElementById('logoutButton').addEventListener('click', function() {
