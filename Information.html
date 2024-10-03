@@ -282,7 +282,7 @@
         
         function addEmployeeCard(employee) {
             const newEmployeeCard = `
-                <div    class="bg-white p-4 rounded shadow relative">
+                <div class="bg-white p-4 rounded shadow relative">
                         <h2 class="text-xl font-bold">${employee.firstName} ${employee.lastName}</h2>
                         <p>${employee.position}</p>
                         <p class="font-bold">${employee.role}</p>
@@ -395,8 +395,10 @@
             const firstLanguage = document.getElementById('addFirstLanguage').value;
             const secondLanguage = document.getElementById('addSecondLanguage').value;
             const degree = document.getElementById('addDegree').value;
+
             const profileImageFile = document.getElementById('addImage').files[0];
             const idCardImageFile = document.getElementById('addIDCard').files[0];
+
             const readFileAsDataURL = (file) => {
                 return new Promise((resolve, reject) => {
                     const reader = new FileReader();
@@ -405,6 +407,7 @@
                     reader.readAsDataURL(file);
                 });
             };
+
             Promise.all([readFileAsDataURL(profileImageFile), readFileAsDataURL(idCardImageFile)])
                 .then(([profileImageDataURL, idCardImageDataURL]) => {
                     const newEmployee = {
@@ -441,6 +444,7 @@
                     console.error("Error uploading image:", error);
                 });
         }
+
         function deleteEmployee(employeeName) {
             Swal.fire({
                 title: 'Are you sure?',
